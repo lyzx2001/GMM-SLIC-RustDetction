@@ -62,6 +62,7 @@ def LoadModel(modelPath, testimagePath, ClusterNum):
     ##  Scale probability to 0-255:
     grey = np.reshape(Scaling0255(np.copy(probability)), (rows, cols)) 
     probability2D = np.reshape(probability, (rows, cols))
+    print("Probability prediction completed!")
     return grey, probability2D
 
 def classify(img_path, npy, ret = 255):
@@ -101,38 +102,38 @@ def classify(img_path, npy, ret = 255):
             for k in range(width):
                 if (label_array[j][k] == i + 1):
                     super_score.append(prob_value[j][k])
-        mean_score = np.array(super_score).mean()
-        score.append(mean_score)
+        if len(super_score) != 0:
+            mean_score = np.array(super_score).mean()
+            score.append(mean_score)
+        else:
+            score.append(0)
     
-    steps = [ret / 255.0]
-    for h in range(len(steps)):
-        bin_score = []
+    bin_score = []
+    for i in range(len(score)):
+        if (score[i] < ret / 255.0):
+            bin_score.append(0)
+        else:
+            bin_score.append(1)    
 
-        for i in range(len(score)):
-            if (score[i] < steps[h]):
-                bin_score.append(0)
+    final_img = np.zeros_like(img)
+    binary_img = np.zeros_like(img)
+    for i in range(length):
+        for j in range(width):
+            b_score = bin_score[label_array[i][j] - 1]
+            if (b_score == 0):
+                final_img[i][j] = img[i][j]
+                binary_img[i][j][0] = 255
+                binary_img[i][j][1] = 255
+                binary_img[i][j][2] = 255
             else:
-                bin_score.append(1)    
-
-        final_img = np.zeros_like(img)
-        binary_img = np.zeros_like(img)
-        for i in range(length):
-            for j in range(width):
-                b_score = bin_score[label_array[i][j] - 1]
-                if (b_score == 0):
-                    final_img[i][j] = img[i][j]
-                    binary_img[i][j][0] = 255
-                    binary_img[i][j][1] = 255
-                    binary_img[i][j][2] = 255
-                else:
-                    final_img[i][j][0] = 0
-                    final_img[i][j][1] = 0
-                    final_img[i][j][2] = 255
-                    binary_img[i][j][0] = 0
-                    binary_img[i][j][1] = 0
-                    binary_img[i][j][2] = 255
+                final_img[i][j][0] = 0
+                final_img[i][j][1] = 0
+                final_img[i][j][2] = 255
+                binary_img[i][j][0] = 0
+                binary_img[i][j][1] = 0
+                binary_img[i][j][2] = 255
         
-        return final_img, binary_img
+    return final_img, binary_img
 
 
 if __name__ == '__main__':
