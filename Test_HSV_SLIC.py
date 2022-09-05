@@ -137,7 +137,7 @@ def classify(img_path, npy, ret = 255):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--test_img_path', type=str, default = None) # pass in the path of the test image
+    parser.add_argument('--test_img_path', type=str, default=None) # pass in the path of the test image
     args = parser.parse_args()
     grey, prob = LoadModel('./GMMmodel_HSV.pkl', args.test_img_path, 7) 
     ret, th = cv2.threshold(grey, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
