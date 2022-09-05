@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import sys
 import joblib
 from pyheatmap.heatmap import HeatMap
 import argparse

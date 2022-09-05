@@ -2,10 +2,8 @@ import cv2
 import numpy as np
 from sklearn.mixture import GaussianMixture as GMM 
 from sklearn.utils import shuffle 
-from pyheatmap.heatmap import HeatMap
 import joblib
 import os
-import sys
 import argparse
 
 ##  H 170

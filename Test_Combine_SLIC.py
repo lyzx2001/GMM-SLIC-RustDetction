@@ -4,7 +4,6 @@ from sklearn.mixture import GaussianMixture as GMM
 from sklearn.utils import shuffle 
 from pyheatmap.heatmap import HeatMap
 import joblib
-import os
 import argparse
 
 def HandleImage_HSV(ImagePath, isRandom):

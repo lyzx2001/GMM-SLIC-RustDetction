@@ -4,7 +4,6 @@ from sklearn.mixture import GaussianMixture as GMM
 from sklearn.utils import shuffle 
 import joblib
 import os
-import sys
 import argparse
 
 ##  Used to get images that have already make a difference between background and object.
