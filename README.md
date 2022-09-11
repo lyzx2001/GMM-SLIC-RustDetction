@@ -4,6 +4,7 @@ This is a novel rust segmentation approach based on the Gaussian mixture model (
 Training code, testing code, and testing images are provided. For the training images and the pre-trained models (including `GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, and `GMMmodel_combine.pkl`), please contact yangzhixinluo@link.cuhk.edu.cn.
 
 ## Citation
+Please cite 
 
 ## Preparation
 Install required dependencies:
