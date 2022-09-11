@@ -37,7 +37,7 @@ def HandleImage_HSV(ImagePath, isRandom):
     return trainInput
 
 def HandleImage_RGB(ImagePath, isRandom):
-##  parameters: ImagePath: string for image path; Random 0/1, 1 for is random
+##  parameters: ImagePath: string for image path; isRandom: 0/1, 1 for is random
 ##  1. Rule out background black color
 ##  2. Scale the H,S,V components
     image = cv2.imread(ImagePath)
@@ -62,9 +62,9 @@ def HandleImage_RGB(ImagePath, isRandom):
         trainInput = shuffle(trainInput, random_state=0)
     return trainInput
 
-def TestGMM_RGB(TestImagePath):
-    testImage = cv2.imread(TestImagePath)
-    testImage_BGR = cv2.imread(TestImagePath)
+def TestGMM_RGB(testImagePath):
+    testImage = cv2.imread(testImagePath)
+    testImage_BGR = cv2.imread(testImagePath)
     testImage_BGR = np.array(testImage_BGR, dtype=np.float64) 
 
     testImage_BGR[:,:,0] = testImage_BGR[:,:,0] / 255
@@ -77,8 +77,8 @@ def TestGMM_RGB(TestImagePath):
 
     return testImage_HSV
 
-def TestGMM_HSV(TestImagePath):
-    testImage_BGR = cv2.imread(TestImagePath)
+def TestGMM_HSV(testImagePath):
+    testImage_BGR = cv2.imread(testImagePath)
     testImage_HSV = cv2.cvtColor(testImage_BGR, cv2.COLOR_BGR2HSV)
     testImage_HSV = np.array(testImage_HSV, dtype=np.float64) 
     testImage_HSV[:,:,0] = (testImage_HSV[:,:,0] + 90) % 180
@@ -113,16 +113,19 @@ def Scaling0255(probability):
     Grey = np.array(Grey, dtype=np.uint8) 
     return Grey
 
-def LoadModel(modelPath, testimagePath, ClusterNum):
+def LoadModel(modelPath, testImagePath, ClusterNum):
+    ## modelPath: .pkl path
+    ## testImagePath: test image path
     model =  joblib.load(modelPath)
+    
     select = []
     for i in range(ClusterNum):
         if model.weights_[i] > 0.122:
             select.append(i)
 
-    rows, cols, ch = cv2.imread(testimagePath).shape
-    testImage_HSV, Sum = TestGMM_HSV(testimagePath)
-    testImage_RGB = TestGMM_RGB(testimagePath)
+    rows, cols, ch = cv2.imread(testImagePath).shape
+    testImage_HSV, Sum = TestGMM_HSV(testImagePath)
+    testImage_RGB = TestGMM_RGB(testImagePath)
     testImage = np.hstack((testImage_HSV, testImage_RGB))
     probability_combine = model.predict_proba(testImage)
     probability_combine = probability_combine[:,select]

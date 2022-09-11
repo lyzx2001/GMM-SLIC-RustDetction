@@ -16,8 +16,8 @@ def drawHeatMap(probability, rows, cols): ##  probability: one dim long array (a
     heat = HeatMap(data)
     heat.heatmap(save_as="./Output/HeatMap_GMM_HSV.png")
 
-def TestGMM(TestImagePath):
-    testImage_RGB = cv2.imread(TestImagePath)
+def TestGMM(testImagePath):
+    testImage_RGB = cv2.imread(testImagePath)
     testImage_HSV = cv2.cvtColor(testImage_RGB, cv2.COLOR_BGR2HSV)
     testImage_HSV = np.array(testImage_HSV, dtype=np.float64) 
     testImage_HSV[:,:,0] = (testImage_HSV[:,:,0] + 90) % 180
@@ -39,18 +39,18 @@ def Scaling0255(probability):
     Grey = np.array(Grey, dtype=np.uint8) 
     return Grey
 
-def LoadModel(modelPath, testimagePath, ClusterNum):
+def LoadModel(modelPath, testImagePath, ClusterNum):
     ## modelPath: .pkl path
-    ## testimagePath: testImagePath
-    model =  joblib.load(modelPath)
+    ## testImagePath: test image path
+    model = joblib.load(modelPath)
 
     select = []
     for i in range(ClusterNum):
         if model.weights_[i] > 1/ClusterNum:
             select.append(i)
 
-    rows, cols, ch = cv2.imread(testimagePath).shape
-    testImage_HSV,Sum = TestGMM(testimagePath)
+    rows, cols, ch = cv2.imread(testImagePath).shape
+    testImage_HSV,Sum = TestGMM(testImagePath)
     probability = model.predict_proba(testImage_HSV)
     probability = probability[:,select]
     probability = np.max(probability, axis=1)

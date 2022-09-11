@@ -16,9 +16,9 @@ def drawHeatMap(probability, rows, cols): ##  probability: one dim long array (a
     heat = HeatMap(data)
     heat.heatmap(save_as="./Output/HeatMap_GMM_RGB.png")
 
-def TestGMM(TestImagePath):
-    testImage = cv2.imread(TestImagePath)
-    testImage_RGB = cv2.imread(TestImagePath)
+def TestGMM(testImagePath):
+    testImage = cv2.imread(testImagePath)
+    testImage_RGB = cv2.imread(testImagePath)
     testImage_RGB = np.array(testImage_RGB, dtype=np.float64) 
 
     testImage_RGB[:,:,0] = testImage_RGB[:,:,0] / 255
@@ -38,7 +38,9 @@ def Scaling0255(probability):
     Grey = np.array(Grey, dtype=np.uint8) 
     return Grey
 
-def LoadModel(modelPath, testimagePath, ClusterNum):
+def LoadModel(modelPath, testImagePath, ClusterNum):
+    ## modelPath: .pkl path
+    ## testImagePath: test image path
     model = joblib.load(modelPath)
 
     select = []
@@ -46,8 +48,8 @@ def LoadModel(modelPath, testimagePath, ClusterNum):
         if model.weights_[i] > 1/ClusterNum:
             select.append(i)
 
-    rows, cols, ch = cv2.imread(testimagePath).shape
-    testImage_RGB, Sum = TestGMM(testimagePath)
+    rows, cols, ch = cv2.imread(testImagePath).shape
+    testImage_RGB, Sum = TestGMM(testImagePath)
 
     probability = model.predict_proba(testImage_RGB)
     probability = probability[:,select]

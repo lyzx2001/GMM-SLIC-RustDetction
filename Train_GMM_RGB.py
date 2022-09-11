@@ -62,6 +62,6 @@ def TrainGMM_segmented_picture(ClusterNum, TrainPath):
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
-    parser.add_argument('--train_path', type=str, default=None) # pass in the path of the test image
+    parser.add_argument('--train_path', type=str, default=None) # pass in the path of the directory that contains all the train images
     args = parser.parse_args()
     TrainGMM_segmented_picture(7, args.train_path)
