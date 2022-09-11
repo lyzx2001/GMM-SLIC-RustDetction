@@ -1,7 +1,7 @@
 # GMM-SLIC-RustDetction
-A novel rust segmentation approach based on the Gaussian mixture model (GMM) and superpixel segmentation.
+This is a novel rust segmentation approach based on the Gaussian mixture model (GMM) and SLIC superpixel segmentation.
 
-Training code, testing code, and testing images are provided. For training images and pre-trained models (including `GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, and `GMMmodel_combine.pkl`), please contact yangzhixinluo@link.cuhk.edu.cn.
+Training code, testing code, and testing images are provided. For the training images and the pre-trained models (including `GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, and `GMMmodel_combine.pkl`), please contact yangzhixinluo@link.cuhk.edu.cn.
 
 ## Citation
 
