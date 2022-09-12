@@ -13,7 +13,7 @@ pip install -r requirements.txt
 ```
 Make a new directory `./Output` under the working directory for the output images that will be generated:
 ```sh
-cd GMM-SLIC-RustDetction # Comes to the directory that you put this project in
+cd GMM-SLIC-RustDetction # Comes to the working directory that you put this project in
 mkdir Output
 ```
 
@@ -66,10 +66,10 @@ python Test_HSV_SLIC.py --test_img_path="./test_images/test1.png"
 
 ## Output
 ### Training output
-The trained model `.pkl` file (`GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, `GMMmodel_combine.pkl` accordingly) will be generated under the current directory.
+The trained model `.pkl` file (`GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, `GMMmodel_combine.pkl` accordingly) will be generated under the working directory.
 
 ### Testing output
-All the output images will be generated under `./Output` directory, including (take running `Test_HSV_SLIC.py` as example):
+All the output images will be generated under `./Output` in the working directory, including (take running `Test_HSV_SLIC.py` as example):
 * `HeatMap_GMM_HSV.png`: The heat image (visualized probability) predicted by the GMM model
 * `SLIC_Black_HSV.jpg`: The SLIC superpixel segmentation output (black background) of the original input image
 * `SLIC_White_HSV.jpg`: The SLIC superpixel segmentation output (white background) of the original input image
@@ -80,4 +80,4 @@ All the output images will be generated under `./Output` directory, including (t
 ## Remarks
 1. We have supported the image formats including `PNG`, `JPG`, `JPEG`, `png`, `jpg`, `jpeg` for the training and testing images.
 2. If your environment does not support GUI display (like when running on remote servers), just comment out all the lines of `cv2.imshow()`, `cv2.waitKey(0)`, `cv2.destroyAllWindows()`.
-3. Notice that do not comment out the lines of `cv2.imwrite()`, otherwise you will not get the output images under `./Output` directory.
+3. Notice that do not comment out the lines of `cv2.imwrite()`, otherwise you will not get the output images under `./Output` in the working directory.
