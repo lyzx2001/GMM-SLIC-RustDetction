@@ -84,8 +84,8 @@ def TrainGMM_segmented_picture(ClusterNum, TrainPath):
     All = All[1:]
     All = shuffle(All, random_state=0)
     model = GMM(n_components=ClusterNum, random_state=0).fit(All) # define the model
-    joblib.dump(model, './GMMmodel_Combine.pkl')
-    print("Trained model successfully dumped to './GMMmodel_Combine.pkl'!")
+    joblib.dump(model, './Model/GMMmodel_Combine.pkl')
+    print("Trained model successfully dumped to './Model/GMMmodel_Combine.pkl'!")
 
 
 if __name__ == '__main__':
