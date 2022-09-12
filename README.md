@@ -8,11 +8,11 @@ Please cite
 
 ## Preparation
 Install required dependencies:
-```bash
+```sh
 pip install -r requirements.txt
 ```
 Make a new directory `./Output` under the working directory for the output images that will be generated:
-```bash
+```sh
 cd GMM-SLIC-RustDetction # Comes to the directory that you put this project in
 mkdir Output
 ```
@@ -30,37 +30,37 @@ The following files are used to test the GMM model with SLIC superpixel segmenta
 
 ## Training
 Train GMM model using RGB features:
-```shell
+```sh
 python Train_GMM_RGB.py --train_path=<your-training-images-directory-path>
 ```
 Train GMM model using HSV features:
-```shell
+```sh
 python Train_GMM_HSV.py --train_path=<your-training-images-directory-path>
 ```
 Train GMM model using RGB+HSV features:
-```shell
+```sh
 python Train_GMM_Combine.py --train_path=<your-training-images-directory-path>
 ```
 Example:
-```shell
+```sh
 python Train_GMM_HSV.py --train_path="./train_images"
 ```
 
 ## Testing
 Test with SLIC segmentation for GMM model using RGB features:
-```shell
+```sh
 python Test_RGB_SLIC.py --test_img_path=<your-testing-image-path>
 ```
 Test with SLIC segmentation for GMM model using HSV features:
-```shell
+```sh
 python Test_HSV_SLIC.py --test_img_path=<your-testing-image-path>
 ```
 Test with SLIC segmentation for GMM model using RGB+HSV features:
-```shell
+```sh
 python Test_Combine_SLIC.py --test_img_path=<your-testing-image-path>
 ```
 Example:
-```shell
+```sh
 python Test_HSV_SLIC.py --test_img_path="./test_images/test1.png"
 ```
 
