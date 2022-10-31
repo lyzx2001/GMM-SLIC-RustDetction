@@ -64,7 +64,7 @@ def LoadModel(modelPath, testImagePath, ClusterNum):
     print("Probability prediction completed!")
     return grey, probability2D
 
-def classify(img_path, npy, ret = 255):
+def classify(img_path, npy, ret=255):
     img = cv2.imread(img_path)
     # initialize the parameters for SLIC
     # region_size refers to the size of every piece of superpixel segmentation, ruler refers to the smooth factor
