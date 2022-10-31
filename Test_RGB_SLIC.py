@@ -39,8 +39,8 @@ def Scaling0255(probability):
     return Grey
 
 def LoadModel(modelPath, testImagePath, ClusterNum):
-    ## modelPath: .pkl path
-    ## testImagePath: test image path
+    # modelPath: .pkl path
+    # testImagePath: test image path
     model = joblib.load(modelPath)
 
     select = []
@@ -58,7 +58,7 @@ def LoadModel(modelPath, testImagePath, ClusterNum):
     probability[Cri] = 0
     drawHeatMap(probability, rows, cols)
     
-    ##  Scale probability to 0-255:
+    # Scale probability to 0-255:
     grey = np.reshape(Scaling0255(np.copy(probability)), (rows, cols))
     probability2D = np.reshape(probability, (rows, cols))
     print("Probability prediction completed!")

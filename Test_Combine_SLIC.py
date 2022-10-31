@@ -7,25 +7,25 @@ import joblib
 import argparse
 
 def HandleImage_HSV(ImagePath, isRandom):
-##  parameters: ImagePath: string for image path; Random 0/1, 1 for is random
-##  1. Rule out background black color
-##  2. Scale the H,S,V components
+    # parameters: ImagePath: string for image path; Random 0/1, 1 for is random
+    # 1. Rule out background black color
+    # 2. Scale the H,S,V components
     image = cv2.imread(ImagePath)
 
     Sum = np.sum(np.array(image, dtype=np.float64), axis=2)
-    ##  Sum != 0 is rust color
+    # Sum != 0 is rust color
 
     image_HSV = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
-    ##  Merge distinct HSV area into one single area
+    # Merge distinct HSV area into one single area
     image_HSV = np.array(image_HSV, dtype=np.float64) 
 
     image_HSV[:,:,0] = (image_HSV[:,:,0] + 90) % 180
     Criterion = np.bitwise_and(Sum!=0, Sum!=765)
-    ## Scaling
+    # Scaling
     image_HSV[:,:,0] = image_HSV[:,:,0] / 180
     image_HSV[:,:,1] = image_HSV[:,:,1] / 255
     image_HSV[:,:,2] = image_HSV[:,:,2] / 255
-    ##  Emphasize H component
+    # Emphasize H component
     image_HSV[:,:,0] = image_HSV[:,:,0] * 1.5
 
     trainInput = image_HSV[Criterion]
@@ -37,20 +37,20 @@ def HandleImage_HSV(ImagePath, isRandom):
     return trainInput
 
 def HandleImage_RGB(ImagePath, isRandom):
-##  parameters: ImagePath: string for image path; isRandom: 0/1, 1 for is random
-##  1. Rule out background black color
-##  2. Scale the H,S,V components
+    # parameters: ImagePath: string for image path; isRandom: 0/1, 1 for is random
+    # 1. Rule out background black color
+    # 2. Scale the H,S,V components
     image = cv2.imread(ImagePath)
 
     Sum = np.sum(np.array(image, dtype=np.float64), axis=2)
 
     image = np.array(image, dtype=np.float64) 
 
-    ## Scaling
+    # Scaling
     image[:,:,0] = image[:,:,0] / 255
     image[:,:,1] = image[:,:,1] / 255
     image[:,:,2] = image[:,:,2] / 255
-    ##  Emphasize R component
+    # Emphasize R component
     image[:,:,2] = image[:,:,2] * 1.5
 
     Criterion = np.bitwise_and(Sum!=0, Sum!=765)
@@ -105,7 +105,7 @@ def drawHeatMap(probability, rows, cols): ##  probability: one dim long array (a
         tmp = [int(Y[i]), int(X[i]), probability[i]]
         data.append(tmp)
     heat = HeatMap(data)
-    ##  Draw a heat map
+    # Draw a heat map
     heat.heatmap(save_as="./Output/HeatMap_GMM_Combine.png")
 
 def Scaling0255(probability):
@@ -114,8 +114,8 @@ def Scaling0255(probability):
     return Grey
 
 def LoadModel(modelPath, testImagePath, ClusterNum):
-    ## modelPath: .pkl path
-    ## testImagePath: test image path
+    # modelPath: .pkl path
+    # testImagePath: test image path
     model = joblib.load(modelPath)
     
     select = []
