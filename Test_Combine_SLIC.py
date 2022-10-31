@@ -42,7 +42,7 @@ def HandleImage_RGB(ImagePath, isRandom):
 ##  2. Scale the H,S,V components
     image = cv2.imread(ImagePath)
 
-    Sum = np.sum(np.array(image, dtype=np.float64),axis = 2)
+    Sum = np.sum(np.array(image, dtype=np.float64), axis=2)
 
     image = np.array(image, dtype=np.float64) 
 

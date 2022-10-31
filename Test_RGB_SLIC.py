@@ -60,7 +60,7 @@ def LoadModel(modelPath, testImagePath, ClusterNum):
     
     ##  Scale probability to 0-255:
     grey = np.reshape(Scaling0255(np.copy(probability)), (rows, cols))
-    probability2D = np.reshape(probability,(rows, cols))
+    probability2D = np.reshape(probability, (rows, cols))
     print("Probability prediction completed!")
     return grey, probability2D
 
