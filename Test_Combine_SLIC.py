@@ -116,7 +116,7 @@ def Scaling0255(probability):
 def LoadModel(modelPath, testImagePath, ClusterNum):
     ## modelPath: .pkl path
     ## testImagePath: test image path
-    model =  joblib.load(modelPath)
+    model = joblib.load(modelPath)
     
     select = []
     for i in range(ClusterNum):

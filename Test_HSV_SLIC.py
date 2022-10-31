@@ -46,7 +46,7 @@ def LoadModel(modelPath, testImagePath, ClusterNum):
 
     select = []
     for i in range(ClusterNum):
-        if model.weights_[i] > 1/ClusterNum:
+        if model.weights_[i] > 1 / ClusterNum:
             select.append(i)
 
     rows, cols, ch = cv2.imread(testImagePath).shape
