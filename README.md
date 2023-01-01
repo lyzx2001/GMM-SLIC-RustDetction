@@ -21,16 +21,16 @@ Make a new directory `./Output` under the working directory for the output image
 mkdir Output
 ```
 
-## Usage of training/testing code
+## Usage of Training/Testing Code
 The following files are used to train the GMM model:
-* `Train_GMM_RGB.py`: Training code for GMM model using RGB features
-* `Train_GMM_HSV.py`: Training code for GMM model using HSV features
-* `Train_GMM_Combine.py`: Training code for GMM model using RGB+HSV features
+* [`Train_GMM_RGB.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Train_GMM_RGB.py): Training code for GMM model using RGB features
+* [`Train_GMM_HSV.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Train_GMM_HSV.py): Training code for GMM model using HSV features
+* [`Train_GMM_Combine.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Train_GMM_Combine.py): Training code for GMM model using RGB+HSV features
 
 The following files are used to test the GMM model with SLIC superpixel segmentation, and generate output images:
-* `Test_RGB_SLIC.py`: Testing code with SLIC segmentation for GMM model using RGB features
-* `Test_HSV_SLIC.py`: Testing code with SLIC segmentation for GMM model using HSV features
-* `Test_Combine_SLIC.py`: Testing code with SLIC segmentation for GMM model using RGB+HSV features
+* [`Test_RGB_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Test_RGB_SLIC.py): Testing code with SLIC segmentation for GMM model using RGB features
+* [`Test_HSV_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Test_HSV_SLIC.py): Testing code with SLIC segmentation for GMM model using HSV features
+* [`Test_Combine_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/Test_Combine_SLIC.py): Testing code with SLIC segmentation for GMM model using RGB+HSV features
 
 ## Training
 Train GMM model using RGB features:
@@ -69,13 +69,13 @@ python Test_HSV_SLIC.py --test_img_path="./test_images/test1.png"
 ```
 
 ## Output
-### Training output
+### Training Output
 The trained model `.pkl` file (according to which training file you ran) will be generated under `./Model` in the working directory:
 * `GMMmodel_RGB.pkl`: The trained model using RGB features
 * `GMMmodel_HSV.pkl`: The trained model using HSV features
 * `GMMmodel_Combine.pkl`: The trained model using RGB+HSV features
 
-### Testing output
+### Testing Output
 All the output images will be generated under `./Output` in the working directory, including (take running `Test_HSV_SLIC.py` as example):
 * `HeatMap_GMM_HSV.png`: The heat image (visualized probability) predicted by the GMM model
 * `SLIC_Black_HSV.jpg`: The SLIC superpixel segmentation output (black background) of the original input image
