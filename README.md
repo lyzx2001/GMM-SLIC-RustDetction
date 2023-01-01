@@ -73,7 +73,7 @@ python Test_HSV_SLIC.py --test_img_path="./test_images/test1.png"
 The trained model `.pkl` file (according to which training file you ran) will be generated under `./Model` in the working directory:
 * `GMMmodel_RGB.pkl`: The trained model using RGB features
 * `GMMmodel_HSV.pkl`: The trained model using HSV features
-* `GMMmodel_combine.pkl`: The trained model using RGB+HSV features
+* `GMMmodel_Combine.pkl`: The trained model using RGB+HSV features
 
 ### Testing output
 All the output images will be generated under `./Output` in the working directory, including (take running `Test_HSV_SLIC.py` as example):
