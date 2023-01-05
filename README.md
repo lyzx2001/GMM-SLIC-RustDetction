@@ -4,7 +4,18 @@ This is a novel rust segmentation approach based on the Gaussian mixture model (
 Training code, testing code, and testing images are provided. For the training images and the pre-trained models (including `GMMmodel_RGB.pkl`, `GMMmodel_HSV.pkl`, and `GMMmodel_Combine.pkl`), please contact yangzhixinluo@link.cuhk.edu.cn.
 
 ## Citation
-Please cite 
+Please cite our [IEEE HDIS 2022 paper](https://ieeexplore.ieee.org/document/9991284) when using this code:
+```
+@INPROCEEDINGS{9991284,
+  author={Yang, Jingyuan and Luo, Yangzhixin and Zhou, Zhixiang and Li, Nan and Fu, Ruiqing and Zhang, Xiaoguang and Ding, Ning},
+  booktitle={2022 International Conference on High Performance Big Data and Intelligent Systems (HDIS)}, 
+  title={Automatic Rust Segmentation Using Gaussian Mixture Model and Superpixel Segmentation}, 
+  year={2022},
+  volume={},
+  number={},
+  pages={71-78},
+  doi={10.1109/HDIS56859.2022.9991284}}
+```
 
 ## Preparation
 Install required dependencies:
