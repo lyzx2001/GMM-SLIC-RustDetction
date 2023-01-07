@@ -37,12 +37,12 @@ mkdir output
 ```
 
 ## Usage of Training/Testing Code
-The files under [`training/](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/training) directory are used to train the GMM model, with the following features:
+The files under [`training/`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/training) directory are used to train the GMM model, with the following features:
 * [`training/train_GMM_RGB.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/training/train_GMM_RGB.py): Training code for GMM model using RGB features.
 * [`training/train_GMM_HSV.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/training/train_GMM_HSV.py): Training code for GMM model using HSV features.
 * [`training/train_GMM_Combine.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/training/train_GMM_Combine.py): Training code for GMM model using RGB+HSV features.
 
-The files under [`testing/](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/testing) directory are used to test the GMM model with SLIC superpixel segmentation, and generate output images, with the following features:
+The files under [`testing/`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/testing) directory are used to test the GMM model with SLIC superpixel segmentation, and generate output images, with the following features:
 * [`testing/test_RGB_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/testing/test_RGB_SLIC.py): Testing code with SLIC segmentation for GMM model using RGB features.
 * [`testing/test_HSV_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/testing/test_HSV_SLIC.py): Testing code with SLIC segmentation for GMM model using HSV features.
 * [`testing/test_Combine_SLIC.py`](https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/testing/test_Combine_SLIC.py): Testing code with SLIC segmentation for GMM model using RGB+HSV features.
@@ -80,7 +80,7 @@ python testing/test_Combine_SLIC.py --test_img_path=<your-testing-image-path>
 ```
 Example:
 ```sh
-python testing/test_HSV_SLIC.py --test_img_path="./test_images/test4.png"
+python testing/test_HSV_SLIC.py --test_img_path="./test_images/test2.png"
 ```
 
 ## Output
@@ -102,4 +102,4 @@ All the output images will be generated under `./output` in the working director
 ## Remarks
 1. We have supported the image formats including `PNG`, `JPG`, `JPEG`, `png`, `jpg`, `jpeg` for the training and testing images.
 2. If your environment does not support GUI display (like when running on remote servers), just comment out all the lines of `cv2.imshow(...)`, `cv2.waitKey(0)`, `cv2.destroyAllWindows()`.
-3. Notice that do not comment out the lines of `cv2.imwrite(...)`, otherwise you will not get the output images under `./Output` in the working directory.
+3. Notice that do not comment out the lines of `cv2.imwrite(...)`, otherwise you will not get the output images under `./output` in the working directory.
