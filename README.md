@@ -1,5 +1,5 @@
 # GMM-SLIC-RustDetction
-Official implementation for ["Automatic Rust Segmentation Using Gaussian Mixture Model and Superpixel Segmentation"](https://ieeexplore.ieee.org/document/9991284) published in IEEE HDIS 2022 conference.
+Official implementation for ["Automatic Rust Segmentation Using Gaussian Mixture Model and Superpixel Segmentation"](https://ieeexplore.ieee.org/document/9991284) published in [IEEE HDIS 2022 Conference](https://ieeexplore.ieee.org/xpl/conhome/9991245/proceeding).
 
 This is a novel rust segmentation approach based on the Gaussian mixture model (GMM) and SLIC superpixel segmentation.
 
