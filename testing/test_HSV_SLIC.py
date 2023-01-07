@@ -144,7 +144,7 @@ if __name__ == '__main__':
     # pass in the path of the test image
     parser.add_argument('--test_img_path', type=str, default=None)
     args = parser.parse_args()
-    grey, prob = loadModel('./Model/GMMmodel_HSV.pkl', args.test_img_path, 7) 
+    grey, prob = loadModel('./model/GMMmodel_HSV.pkl', args.test_img_path, 7) 
     ret, th = cv2.threshold(grey, 0, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
     finalImg, binaryImg = classify(args.test_img_path, prob, ret)
     print("Successfully generated test output!")

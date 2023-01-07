@@ -60,8 +60,8 @@ def trainGMMSegmentedPicture(trainPath, clusterNum):
     allData = shuffle(allData, random_state=0)
     # define the model
     model = GMM(n_components=clusterNum, random_state=0).fit(allData)
-    joblib.dump(model, './Model/GMMmodel_HSV.pkl')
-    print("Trained model successfully dumped to './Model/GMMmodel_HSV.pkl'!")
+    joblib.dump(model, './model/GMMmodel_HSV.pkl')
+    print("Trained model successfully dumped to './model/GMMmodel_HSV.pkl'!")
 
 
 if __name__ == '__main__':
