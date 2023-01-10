@@ -92,12 +92,72 @@ The trained model `.pkl` file (according to which training file you ran) will be
 
 ### Testing Output
 All the output images will be generated under `./output` in the working directory, including (take running `testing/test_HSV_SLIC.py` as example):
-* `HeatMap_GMM_HSV.png`: The heat image (visualized probability) predicted by the GMM model.
+* `HeatMap_GMM_HSV.png`: The heat image (visualized probabilities) predicted by the GMM model.
 * `SLIC_Black_HSV.png`: The SLIC superpixel segmentation output (black background) of the original input image.
 * `SLIC_White_HSV.png`: The SLIC superpixel segmentation output (white background) of the original input image.
 * `SLIC_HSV.png`: The SLIC superpixel segmentation output (original background) of the original input image.
 * `Final_Img_HSV.png`: The final segmentation output with rust detected in red and original background.
 * `Binary_Img_HSV.png`: The binary segmentation output with rust detected in red and background in white.
+
+## Sample 
+### Testing Input
+<center>
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/Input_Img.png">
+	    <img src="./sample_images/Input_Img.png" width="160" />
+    </a>
+    <br/>
+	<font color="AAAAAA">Input_Img.png</font>
+</center>
+<br/>
+
+### Testing Output
+<center>
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/HeatMap_GMM_HSV.png">
+	    <img src="./sample_images/HeatMap_GMM_HSV.png" width="160" />
+    </a>
+    <br/>
+	<font color="AAAAAA">HeatMap_GMM_HSV.png</font>
+</center>
+<br/>
+
+<center>
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/SLIC_Black_HSV.png">
+	    <img src="./sample_images/SLIC_Black_HSV.png" width="160" />
+    </a>
+	&emsp;&emsp;
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/SLIC_White_HSV.png">
+	    <img src="./sample_images/SLIC_White_HSV.png" width="160" />
+    </a>
+	<br/>
+	<font color="AAAAAA">SLIC_Black_HSV.png</font>
+	&emsp;&emsp;&emsp;&emsp;
+	<font color="AAAAAA">SLIC_White_HSV.png</font>
+</center>
+<br/>
+
+<center>
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/SLIC_HSV.png">
+	    <img src="./sample_images/SLIC_HSV.png" width="160" />
+    </a>
+    <br/>
+	<font color="AAAAAA">SLIC_HSV.png</font>
+</center>
+<br/>
+
+<center>
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/Final_Img_HSV.png">
+	    <img src="./sample_images/Final_Img_HSV.png" width="160" />
+    </a>
+	&emsp;&emsp;
+    <a href="https://github.com/lyzx2001/GMM-SLIC-RustDetction/blob/master/sample_images/Binary_Img_HSV.png">
+	    <img src="./sample_images/Binary_Img_HSV.png" width="160" />
+    </a>
+	<br/>
+	<font color="AAAAAA">Final_Img_HSV.png</font>
+	&emsp;&emsp;&emsp;&emsp;
+	<font color="AAAAAA">Binary_Img_HSV.png</font>
+</center>
+<br/>
 
 ## Remarks
 1. We have supported the image formats including `PNG`, `JPG`, `JPEG`, `png`, `jpg`, `jpeg` for the training and testing images.
